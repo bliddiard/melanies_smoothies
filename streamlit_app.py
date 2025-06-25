@@ -19,13 +19,13 @@ session = cnx.session()
 
 my_dataframe = (
     session.table("smoothies.public.fruit_options")
-    .select(col("FRUIT_NAME"),col('SEARCH_ON')
+    .select(col("FRUIT_NAME"),col('SEARCH_ON'))
     .order_by(col("FRUIT_NAME"))
     )
 
 # Conver the SnowPark Datafram to a Pandas Dataframe so we can use the LOC Function
 pd_df=my_dataframe.to_pandas()
-st.datafrmae(pd_df)
+st.dataframe(pd_df)
 st.stop()
 
 ingredients_list = st.multiselect(
